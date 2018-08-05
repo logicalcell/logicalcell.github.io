@@ -1,0 +1,455 @@
+*{margin:0;padding:0;box-sizing:border-box;line-height:1;-webkit-tap-highlight-color:transparent;}
+a{color:inherit;text-decoration:none;}li{list-style-type:none;}img{vertical-align:bottom;}
+
+html,body{
+	height:100%;
+	overflow:hidden;
+}
+
+#wrap{
+	height:100%;
+	overflow:hidden;
+	z-index:2;
+	position:relative;
+}
+body{
+	font-family:"メイリオ", Meiryo, sans-serif;
+}
+
+/*----------------------header----------------------*/
+header{
+	position:fixed;
+	width:100%;
+	height:50px;
+	top:0;
+}
+
+header .content{
+	max-width:1200px;
+	width:100%;
+	margin:0 auto;
+	display:flex;
+	justify-content: space-between;
+}
+
+h1{
+	color:#555;
+	font-size: 32px;
+	text-align: center;
+	line-height:50px;
+	font-weight: normal;
+	padding:0 10px;
+}
+
+nav svg{
+	position:fixed;
+	right:20px;
+	bottom:20px;
+	width:48px;
+	height:48px;
+	cursor:pointer;
+	display:none;
+}
+
+nav svg path{
+	stroke-linecap:round;
+  stroke-dasharray:48;
+  transition:all 0.4s;
+  stroke-dashoffset:-16;
+}
+
+nav svg path.active{
+	stroke-dashoffset:-2;
+}
+
+nav svg.close{
+	animation:close 0.3s ease 0s 1 alternate both;
+}
+
+@keyframes close{
+	0% {transform:scale(1,1);}
+	50% {transform:scale(0.8,0.8);}
+	100% {transform:scale(1,1);}
+}
+
+/*----------------------pagenav----------------------*/
+
+#pagenav{
+	bottom:20px;
+  right:0;
+  opacity:1;
+  display:inline-block;
+  position: fixed;
+}
+
+#pagenav li{
+	transition:font-size .3s;
+	text-align:right;
+}
+
+#pagenav li.active{
+	font-size:35px;
+}
+
+#pagenav li a{
+	display:inline-block;
+	height:60px;
+	line-height:52px;
+	white-space:nowrap;
+  border-radius:50% 0 0 50%;
+  padding:0 10px 0 30px;
+  background:#f0f0f0;
+  color:#555;
+  border:4px solid #555;
+  border-right:none;
+}
+
+/*----------------------main----------------------*/
+
+main{
+	position:absolute;
+	width:100%;
+	z-index:-1;
+	top:0;
+	transition:top .5s ease-in-out;
+	background:#f0f0f0;
+}
+
+main section{
+	height:0;
+	position:relative;
+	display:none;
+}
+main section h2{
+	position:absolute;
+	color:#ddd;
+	font-weight:bold;
+	white-space:nowrap;
+	transform-origin: center left;
+	z-index:-1;
+}
+
+/*----------------------section1----------------------*/
+
+#motto div{
+	position:absolute;
+	font-weight: bold;
+	white-space:nowrap;
+	top:50%;
+	left:50%;
+	width:100%;
+	transform-origin:left top;
+	transform:rotate(-20deg) translate(-50%,-50%);
+}
+
+#motto span{
+	display:block;
+	background:#555;
+	color:#f0f0f0;
+	line-height:60px;
+	position:relative;
+	font-size:42px;
+}
+
+#span1{
+  width:0px;
+  left: calc(-50% + 50px);
+	text-align: right;
+	padding:20px 20px 20px 0;
+	top:20px;
+	transition:width 1s;
+}
+
+#span2{
+	text-align: center;
+	width:100px;
+	height:100px;
+	margin:0 auto;
+	padding:20px 0;
+	z-index:1;
+	transform:rotate(-900deg);
+	transition:transform 1s;
+}
+
+#span3{
+  width:0px;
+  right: calc(-50% + 50px);
+	margin-left:auto;
+	text-align: left;
+	padding:20px 0px 20px 20px;
+	top:-20px;
+	transition:width 1s;
+}
+
+.active #span1,.active #span3{
+	width:100%;
+}
+
+.active #span2{
+	transform:rotate(0);
+}
+
+/*----------------------section2----------------------*/
+
+#profile>div{
+	position:relative;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}
+
+#icon{
+	border-radius:50%;
+	box-shadow: 0px 10px 10px #555;
+	max-width:20vh;
+	width:40%;
+	margin:0 auto 2vh auto;
+	transform:rotateY(720deg);
+	transition:transform 1s;
+}
+
+.active #icon{
+	transform:rotateY(0);
+}
+
+#icon img{
+	width:100%;
+	border-radius:50%;
+}
+
+.ex{
+	text-align:center;
+	padding:2vh 0;
+	background: #555;
+	font-size:20px;
+	color:#f0f0f0;
+	margin:0 auto 2vh auto;
+	transform:rotateX(90deg);
+	transition:transform .8s;
+}
+
+.active .ex{
+	transform:rotateX(0);
+}
+
+/*----------------------section3----------------------*/
+
+#skillcards{
+	position:absolute;
+	width:70%;
+	height:70vh;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	display:flex;
+	justify-content:space-around;
+	align-items: center;
+	flex-wrap:wrap;
+}
+
+.skillcard{
+	width:32%;
+	height:20vh;
+	color:#555;
+	position:relative;
+	opacity:0;
+	top:60px;
+}
+
+.active .skillcard{
+	opacity:1;
+	top:0;
+}
+
+.skillcard span{
+	display:inline-block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	text-align:center;
+}
+
+/*----------------------section4----------------------*/
+
+#work>div{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	height:70vh;
+	display:flex;
+	max-width:600px;
+	width:100%;
+	align-items:center;
+}
+
+#work article{
+	width:50%;
+	position:relative;
+	text-align: center;
+	padding:0 10px;
+}
+
+#mock{
+	width:50%;
+	height:100%;
+	position:relative;
+}
+
+#mock img{
+	width:80%;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}
+
+#work article a{
+	display:block;
+	max-width:200px;
+	margin:0 auto;
+}
+
+#work article a img{
+	width:100%;
+}
+
+#work article p{
+	margin-bottom:20px;
+}
+
+#work h3{
+	font-size:20px;
+	color:#555;
+	margin-bottom:40px;
+}
+
+#work h3 span{
+	display:inline-block;
+	transform-origin:center center;
+}
+
+/*----------------------section5----------------------*/
+
+#about>div{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	height:70vh;
+	display:flex;
+	max-width:600px;
+	width:100%;
+	align-items:center;
+}
+
+#about article{
+	width:50%;
+	padding:0 10px;
+	position:relative;
+	text-align: center;
+}
+
+#siteimage{
+	width:50%;
+	height:100%;
+	position:relative;
+}
+
+#about article p{
+	margin-bottom:20px;
+	line-height:1.6;
+}
+
+#about h3{
+	font-size:20px;
+	color:#555;
+	margin-bottom:40px;
+}
+
+#about article h3 span{
+	display:inline-block;
+	transform-origin:center center;
+}
+
+#about article a{
+	color:#e05050;
+}
+
+#siteimage img{
+	width:80%;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	box-shadow:1px 1px 20px #555;
+}
+
+/*----------------------scrollButton----------------------*/
+
+#scrollButton{
+	position:fixed;
+	bottom:20px;
+	left:0;
+	right:0;
+	width:50px;
+	height:30px;
+	margin:0 auto;
+	animation:down 1s ease-in-out 0s infinite alternate both;
+	transition:transform .3s;
+	cursor:pointer;
+}
+
+#scrollButton.end{
+	transform:scale(0,0);
+}
+
+#scrollButton path{
+	fill:none;
+	stroke:#555;
+	stroke-width:2px;
+	width:50px;
+	height:30px;
+	animation:downpath 1s ease-in-out 0s infinite alternate both;	
+}
+
+@keyframes downpath{
+	0% {stroke-width:3px;}
+	50% {stroke-width:5px;}
+	100% {stroke-width:3px;}
+}
+
+@keyframes down{
+	0% {bottom:20px;}
+	50% {bottom:30px;}
+	100% {bottom:20px;}
+}
+
+/*----------------------media----------------------*/
+
+@media screen and (max-width:960px) {
+	#pagenav{
+		bottom:100px;
+		right:-100px;
+		opacity:0;
+		width:30px;
+		transition:right .2s ease-out,opacity .2s ease-out,width 1s ease-out;
+	}
+
+	#pagenav.active{
+		opacity:1;
+		width:100%;
+		right:0px;
+	}
+
+	nav svg{
+		display:block;
+	}
+}
+
+@media screen and (max-width:600px) {
+	#skillcards{
+		width:90%;
+	}
+}
